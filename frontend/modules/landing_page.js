@@ -3,7 +3,7 @@ import config from "../conf/index.js";
 async function init() {
   //Fetches list of all cities along with their images and description
   let cities = await fetchCities();
-  console.log(cities);
+  // console.log(cities);
   //Updates the DOM with the cities
   cities.forEach((key) => {
     addCityToDOM(key.id, key.city, key.description, key.image);
