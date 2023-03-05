@@ -81,7 +81,7 @@ function filterFunction(list, filters) {
   // TODO: MODULE_FILTERS
   // 1. Handle the 3 cases detailed in the comments above and return the filtered list of adventures
   // 2. Depending on which filters are needed, invoke the filterByDuration() and/or filterByCategory() methods
-  // console.log(filters.duration);
+  console.log(filters);
   if(filters.duration !== "" && filters.category.length === 0){
     let lowHigh = filters.duration.split("-");
     list = filterByDuration(list, lowHigh[0], lowHigh[1]);
@@ -103,7 +103,7 @@ function filterFunction(list, filters) {
 function saveFiltersToLocalStorage(filters) {
   // TODO: MODULE_FILTERS
   // 1. Store the filters as a String to localStorage
-  // window.localStorage.removeItem("filters");
+  // window.localStorage.clear();
   window.localStorage.setItem("filters",JSON.stringify(filters));
   return true;
 }
@@ -126,6 +126,10 @@ function generateFilterPillsAndUpdateDOM(filters) {
   // TODO: MODULE_FILTERS
   // 1. Use the filters given as input, update the Duration Filter value and Generate Category Pills
   // console.log(filters);
+  let durationSelect = document.getElementById("duration-select");
+  // console.log(durationSelect);
+  durationSelect.value = filters.duration;
+
   let pills = document.getElementById("category-list");
   filters.category.forEach(category => {
     console.log(category);
