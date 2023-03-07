@@ -199,7 +199,6 @@
         function clearCategory(event) {
             document.getElementById("data").textContent = "";
             document.getElementById("category-list").textContent = "";
-            
             filters["category"] = [];
             let filteredAdventures = filterFunction(adventures, filters);
             addAdventureToDOM(filteredAdventures);
